@@ -21,15 +21,41 @@ function lengthOfPwd(){
     }
     return length;
 }
+console.log(lengthOfPwd);
 
 /*When prompted for use of lowercase characters, user selects yes or no.*/
 function lowerChar(){
   lower = prompt('Would you like to include lower case characters in your password? (Yes or No)');
-
+    if (lower === 'yes'){
+      lower = true;
+      return lower;
+    }
+    else if (lower = 'no'){
+      lower = false;
+      return lower;
+    }
+    else {
+      alert('Answer Yes or No');
+      lowerChar();
+    }
 }
-
+console.log(lowerChar);
 /*When prompted for use of uppercase characters, user selects yes or no.*/
-
+function upperChar(){
+  upper = prompt('Would you like to include upper case characters in your password? (Yes or No)');
+    if (upper === 'yes'){
+      upper = true;
+      return upper;
+    }
+    else if (upper = 'no'){
+      upper = false;
+      return upper;
+    }
+    else {
+      alert ('Answer Yes or No');
+      upperChar();
+    }
+}
 /*When prompted for use of special characters, user selects yes or no.*/
 
 /*When prompted for use of number characters, user selects yes or no.*/
