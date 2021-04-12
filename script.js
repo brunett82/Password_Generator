@@ -22,6 +22,17 @@ function lengthOfPwd(){
     return length;
 }
 
+/*When prompted for use of lowercase characters, user selects yes or no.*/
+function lowerChar(){
+  lower = prompt('Would you like to include lower case characters in your password? (Yes or No)');
+
+}
+
+/*When prompted for use of uppercase characters, user selects yes or no.*/
+
+/*When prompted for use of special characters, user selects yes or no.*/
+
+/*When prompted for use of number characters, user selects yes or no.*/
 
 // Write password to the #password input
 function writePassword() {
