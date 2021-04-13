@@ -26,11 +26,11 @@ console.log(lengthOfPwd);
 /*When prompted for use of lowercase characters, user selects yes or no.*/
 function lowerChar(){
   lower = prompt('Would you like to include lower case characters in your password? (Yes or No)');
-    if (lower === 'yes'){
+    if (lower == 'yes'){
       lower = true;
       return lower;
     }
-    else if (lower = 'no'){
+    else if (lower == 'no'){
       lower = false;
       return lower;
     }
@@ -43,11 +43,11 @@ console.log(lowerChar);
 /*When prompted for use of uppercase characters, user selects yes or no.*/
 function upperChar(){
   upper = prompt('Would you like to include upper case characters in your password? (Yes or No)');
-    if (upper === 'yes'){
+    if (upper == 'yes'){
       upper = true;
       return upper;
     }
-    else if (upper = 'no'){
+    else if (upper =='no'){
       upper = false;
       return upper;
     }
@@ -56,10 +56,41 @@ function upperChar(){
       upperChar();
     }
 }
+console.log(upperChar);
 /*When prompted for use of special characters, user selects yes or no.*/
-
+function specialChar(){
+  specialty = prompt('Would you like to include special characters in your password? (Yes or No)');
+    if (specialty == 'yes'){
+      specialty = true;
+      return specialty;
+    } 
+    else if (specialty == 'no'){
+      specialty = false;
+      return specialty;
+    }
+    else {
+      alert('Answer Yes or No')
+      specialChar();
+    }
+}
+console.log(specialChar);
 /*When prompted for use of number characters, user selects yes or no.*/
-
+function numberChar(){
+  numerals = prompt('Would you like to include special characters in your password? (Yes or No)');
+    if (numerals == 'yes'){
+      numerals = true;
+      return numerals;
+    }
+    else if (numerals == 'no'){
+      numerals = false;
+      return numerals;
+    }
+    else {
+      alert('Answer Yes or No')
+      numberChar();
+    }
+}
+console.log(numberChar);
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
