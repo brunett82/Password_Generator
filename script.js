@@ -3,9 +3,10 @@ var generateBtn = document.querySelector("#generate");
 
 //Variables
 var number = '0123456789';
-var special = '~`!@#$%^&*()-_=+[]{},<>?/|*.'
-var lowerCase = 'abcdefghijklmnopqrstuvwxyz'
-var upperCase = lowerCase.toUpperCase();
+var special = '~`!@#$%^&*()-_=+[]{},<>?/|*.';
+var lowerCase = 'abcdefghijklmnopqrstuvwxyz';
+var upperCase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
 
 //Prompt functions
 /*When prompted for desired length of password user chooses length >8 but <128*/
@@ -25,7 +26,7 @@ console.log(lengthOfPwd);
 
 /*When prompted for use of lowercase characters, user selects yes or no.*/
 function lowerChar(){
-  lower = prompt('Would you like to include lower case characters in your password? (Yes or No)');
+  var lower = prompt('Would you like to include lower case characters in your password? (Yes or No)');
     if (lower == 'yes'){
       lower = true;
       return lower;
@@ -38,11 +39,12 @@ function lowerChar(){
       alert('Answer Yes or No');
       lowerChar();
     }
+    return lower;
 }
 console.log(lowerChar);
 /*When prompted for use of uppercase characters, user selects yes or no.*/
 function upperChar(){
-  upper = prompt('Would you like to include upper case characters in your password? (Yes or No)');
+  var upper = prompt('Would you like to include upper case characters in your password? (Yes or No)');
     if (upper == 'yes'){
       upper = true;
       return upper;
@@ -55,11 +57,12 @@ function upperChar(){
       alert ('Answer Yes or No');
       upperChar();
     }
+    return upper;
 }
 console.log(upperChar);
 /*When prompted for use of special characters, user selects yes or no.*/
 function specialChar(){
-  specialty = prompt('Would you like to include special characters in your password? (Yes or No)');
+  var specialty = prompt('Would you like to include special characters in your password? (Yes or No)');
     if (specialty == 'yes'){
       specialty = true;
       return specialty;
@@ -72,11 +75,12 @@ function specialChar(){
       alert('Answer Yes or No')
       specialChar();
     }
+    return specialty;
 }
 console.log(specialChar);
 /*When prompted for use of number characters, user selects yes or no.*/
 function numberChar(){
-  numerals = prompt('Would you like to include special characters in your password? (Yes or No)');
+  var numerals = prompt('Would you like to include special characters in your password? (Yes or No)');
     if (numerals == 'yes'){
       numerals = true;
       return numerals;
@@ -89,16 +93,49 @@ function numberChar(){
       alert('Answer Yes or No')
       numberChar();
     }
+    return numerals;
 }
 console.log(numberChar);
 // Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
 
+function generatePassword(){
+  var pass = '';
+  var output;
+  lengthOfPwd();
+  lowerChar();
+  upperChar();
+  numberChar();
+  specialChar();
+
+  if (lowerChar && upperChar && numberChar && specialChar){
+    output += lowerCase + upperCase + number + special;
+  } else if (lowerChar && upperChar && numberChar){
+    output += lowerCase + upperCase + number;
+  } else if (lowerChar && upperChar){
+    output += lowerCase + upperCase;
+  } else if (lowerChar){
+    output += lowerCase;
+  } else if (upperChar){
+    output += upperCase;
+  } else if (numberChar){
+    output += number;
+  } else if (specialChar){
+    output += special;
+  } else {
+    output += lowerCase;
+  }
+  for (var i = 0; i < length; i++) {
+    pass += output.charAt(Math.floor(Math.random() * output.length)); 
+  }
+  return pass;
+}
+console.log(generatePassword);
+function writePassword() {
+  var password = '';
+  password = generatePassword();
+  var passwordText = document.querySelector("#password");
   passwordText.value = password;
 
-}
-
+}    
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
