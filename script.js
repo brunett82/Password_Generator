@@ -100,7 +100,7 @@ console.log(numberChar);
 
 function generatePassword(){
   var pass = '';
-  var output;
+  var output = '';
   lengthOfPwd();
   var lowerSelect = lowerChar();
   var upperSelect = upperChar();
