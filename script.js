@@ -80,7 +80,7 @@ function specialChar(){
 console.log(specialChar);
 /*When prompted for use of number characters, user selects yes or no.*/
 function numberChar(){
-  var numerals = prompt('Would you like to include special characters in your password? (Yes or No)');
+  var numerals = prompt('Would you like to include numbers in your password? (Yes or No)');
     if (numerals == 'yes'){
       numerals = true;
       return numerals;
@@ -102,34 +102,35 @@ function generatePassword(){
   var pass = '';
   var output;
   lengthOfPwd();
-  lowerChar();
-  upperChar();
-  numberChar();
-  specialChar();
+  var lowerSelect = lowerChar();
+  var upperSelect = upperChar();
+  var numberSelect = numberChar();
+  var specialSelect = specialChar();
 
-  if (lowerChar && upperChar && numberChar && specialChar){
-    output += lowerCase + upperCase + number + special;
-  } else if (lowerChar && upperChar && numberChar){
-    output += lowerCase + upperCase + number;
-  } else if (lowerChar && upperChar){
-    output += lowerCase + upperCase;
-  } else if (lowerChar){
+  if (lowerSelect === true){
     output += lowerCase;
-  } else if (upperChar){
+    console.log('1');
+  } 
+  if (upperSelect === true){
     output += upperCase;
-  } else if (numberChar){
+    console.log('2');
+  } 
+  if (numberSelect === true){
     output += number;
-  } else if (specialChar){
+    console.log('3');
+  } 
+  if (specialSelect === true){
     output += special;
-  } else {
-    output += lowerCase;
-  }
+    console.log('4')
+  } 
+
   for (var i = 0; i < length; i++) {
     pass += output.charAt(Math.floor(Math.random() * output.length)); 
   }
   return pass;
 }
-console.log(generatePassword);
+console.log(generatePassword, 'generate password');
+
 function writePassword() {
   var password = '';
   password = generatePassword();
