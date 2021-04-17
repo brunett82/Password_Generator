@@ -14,8 +14,10 @@ Develop a password generator that randomly creates passwords based on user selec
 5. Display new password in dialog box on webpage.
 
 # Deployed Screen-Shot
+![](Images/password_generator_screenshot.png)
 
 # Deployed Application Link:
+https://brunett82.github.io/Password_Generator/
 
 # Project Owner
 
