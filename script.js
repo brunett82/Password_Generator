@@ -22,7 +22,7 @@ function lengthOfPwd(){
     }
     return length;
 }
-console.log(lengthOfPwd);
+
 
 /*When prompted for use of lowercase characters, user selects yes or no.*/
 function lowerChar(){
@@ -41,7 +41,7 @@ function lowerChar(){
     }
     return lower;
 }
-console.log(lowerChar);
+
 /*When prompted for use of uppercase characters, user selects yes or no.*/
 function upperChar(){
   var upper = prompt('Would you like to include upper case characters in your password? (Yes or No)');
@@ -59,7 +59,7 @@ function upperChar(){
     }
     return upper;
 }
-console.log(upperChar);
+
 /*When prompted for use of special characters, user selects yes or no.*/
 function specialChar(){
   var specialty = prompt('Would you like to include special characters in your password? (Yes or No)');
@@ -77,7 +77,7 @@ function specialChar(){
     }
     return specialty;
 }
-console.log(specialChar);
+
 /*When prompted for use of number characters, user selects yes or no.*/
 function numberChar(){
   var numerals = prompt('Would you like to include numbers in your password? (Yes or No)');
@@ -95,7 +95,7 @@ function numberChar(){
     }
     return numerals;
 }
-console.log(numberChar);
+
 // Write password to the #password input
 
 function generatePassword(){
@@ -109,27 +109,22 @@ function generatePassword(){
 
   if (lowerSelect === true){
     output += lowerCase;
-    console.log('1');
   } 
   if (upperSelect === true){
     output += upperCase;
-    console.log('2');
   } 
   if (numberSelect === true){
     output += number;
-    console.log('3');
   } 
   if (specialSelect === true){
     output += special;
-    console.log('4')
   } 
-
   for (var i = 0; i < length; i++) {
     pass += output.charAt(Math.floor(Math.random() * output.length)); 
   }
   return pass;
 }
-console.log(generatePassword, 'generate password');
+
 
 function writePassword() {
   var password = '';
